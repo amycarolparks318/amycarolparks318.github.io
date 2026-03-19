@@ -21,17 +21,17 @@ const popup = document.querySelector('.popup');
 let num = 1;
 
 // EVENT LISTENERS
-plus.addEventListener('click', () => {
-    addQty();
-});
+if(plus){
+    plus.addEventListener('click', addQty); 
+};
 
-minus.addEventListener('click', () => {
-    subQty();
-});
+if(minus){
+    minus.addEventListener('click', subQty);
+};
 
-cartButton.addEventListener('click', () => {
-    cartQty();
-});
+if(cartButton){
+    cartButton.addEventListener('click', cartQty);
+    };
 
 // OPEN/CLOSE CART WHEN ICON IS CLICKED
 cart.addEventListener('click', (e) => {
@@ -51,11 +51,13 @@ document.addEventListener('click', (e) => {
     }
 });
 
-thumbImgBox.addEventListener('click', (e) => {
-    if (e.target !== thumbImgBox) {
-        largeImg.setAttribute('src', e.target.dataset.largeimage)
-    }
-});
+if(thumbImgBox && largeImg){
+     thumbImgBox.addEventListener('click', (e) => {
+        if (e.target !== thumbImgBox) {
+            largeImg.setAttribute('src', e.target.dataset.largeimage)
+        }
+    });
+}
 
 previous.addEventListener('click', (e) => {
     if (num > 1) {
@@ -75,10 +77,11 @@ trash.addEventListener('click', () => {
     emptyCart();
 });
 
+if(largeImg){       
 largeImg.addEventListener('click', () => {
     openModal();
-    showSlides();
-});
+    showSlides(slideIndex);
+})};
 
 // FUNCTIONS
 function addQty() {
