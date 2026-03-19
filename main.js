@@ -1,14 +1,13 @@
-// =========================
-// LOCAL STORAGE STATE HELPER
-// =========================
 
-// Gets a value from localStorage or returns the default value
+// USE LOCAL STORAGE
+
+// Gets value from localStorage or returns default value
 function getStoredValue(key, defaultValue) {
     const stored = localStorage.getItem(key);
     return stored !== null ? JSON.parse(stored) : defaultValue;
 }
 
-// Creates a simple localStorage-backed state object
+// Creates a  localStorage object
 function createLocalStorageState(key, defaultValue) {
     let value = getStoredValue(key, defaultValue);
 
@@ -24,9 +23,10 @@ function createLocalStorageState(key, defaultValue) {
     return { get, set };
 }
 
-// =========================
 // GLOBAL VARIABLES
-// =========================
+
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.getElementById('nav-links');
 
 const largeImg = document.querySelector('.img-large');
 const thumbImgBox = document.querySelector('.thumbnail-box');
@@ -57,32 +57,45 @@ const cartState = createLocalStorageState('cartQty', 0);
 let num = 1;
 let slideIndex = 1;
 
-// =========================
 // EVENT LISTENERS
-// =========================
 
-// Increases quantity when plus icon is clicked
+//mobile menu toggle
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+}
+
+// Increases quantity when plus icon clicked
 if (plus) {
     plus.addEventListener('click', () => {
         addQty();
     });
 }
 
-// Decreases quantity when minus icon is clicked
+// Decreases quantity when minus icon clicked
 if (minus) {
     minus.addEventListener('click', () => {
         subQty();
     });
 }
 
-// Adds current quantity to cart badge and saves it
+// Adds current quantity to cart icon and saves
 if (cartButton) {
     cartButton.addEventListener('click', () => {
         cartQty();
     });
 }
 
-// Opens or closes cart popup when cart icon is clicked
+// Opens or closes cart popup when cart icon clicked
 if (cart) {
     cart.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -104,8 +117,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Changes the large image when a thumbnail is clicked
-// Also keeps image navigation and lightbox in sync
+// Changes large image when a thumbnail clicked
 if (thumbImgBox && largeImg) {
     thumbImgBox.addEventListener('click', (e) => {
         if (e.target.matches('.img-thumb')) {
@@ -162,7 +174,7 @@ if (largeImg) {
     });
 }
 
-// Closes modal when clicking the dark overlay area
+// Closes modal
 if (modal) {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
@@ -171,11 +183,9 @@ if (modal) {
     });
 }
 
-// =========================
 // CART FUNCTIONS
-// =========================
 
-// Restores cart UI from localStorage when page loads
+// Restores cart from localStorage when page loads
 function initCart() {
     if (!cartItems || !quantity) return;
 
@@ -223,8 +233,7 @@ function cartQty() {
     cartPopup();
 }
 
-// Controls whether the cart shows the filled state or empty message
-// Also updates the total price
+// Controls whether the cart shows filled or empty message
 function cartPopup() {
     if (!cartHasItems || !cartNoItems || !priceUp) return;
 
@@ -242,7 +251,6 @@ function cartPopup() {
 }
 
 // Toggles the cart popup open and closed
-// Also ensures the correct cart content is displayed
 function cartToggle() {
     if (!aside) return;
 
@@ -281,11 +289,9 @@ function emptyCart() {
     }
 }
 
-// =========================
 // MAIN GALLERY FUNCTIONS
-// =========================
 
-// Highlights the active thumbnail in the main gallery
+// Highlight active thumbnail in gallery
 function updateMainThumbnailState() {
     const thumbs = document.querySelectorAll('.img-thumb');
 
@@ -299,33 +305,31 @@ function updateMainThumbnailState() {
     });
 }
 
-// =========================
 // LIGHTBOX FUNCTIONS
-// =========================
 
-// Opens the lightbox modal
+// Opens lightbox modal
 function openModal() {
     if (!modal) return;
     modal.style.display = 'block';
 }
 
-// Closes the lightbox modal
+// Closes lightbox modal
 function closeModal() {
     if (!modal) return;
     modal.style.display = 'none';
 }
 
-// Moves forward or backward through lightbox slides
+// Moves through lightbox slides
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
-// Opens a specific lightbox slide based on thumbnail clicked
+// Opens slide based on thumbnail clicked
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
-// Displays the active lightbox slide and highlights the active thumbnail
+// Displays active slide and highlights thumbnail
 function showSlides(n) {
     const slides = document.getElementsByClassName('mySlides');
     const dots = document.getElementsByClassName('demo');
