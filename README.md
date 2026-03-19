@@ -59,6 +59,7 @@ A responsive product page built with HTML, CSS, and vanilla JavaScript, featurin
 - Dynamic price calculation
 - Empty vs filled cart states
 - Click outside to close popup
+- Added persistent cart using localStorage
 
 ### Image Gallery
 - Thumbnail → main image switching
@@ -70,7 +71,6 @@ A responsive product page built with HTML, CSS, and vanilla JavaScript, featurin
 ## 🔧 Future Improvements
 
 - Convert project to React for better state management
-- Add persistent cart using localStorage
 - Improve accessibility (ARIA roles, keyboard navigation)
 - Add animations and transitions
 - Connect to a real backend for checkout

@@ -585,44 +585,38 @@ main-img {
 .contact-title {
   font-size: 2rem;
   margin-bottom: 12px;
-  color: var(--very-dark-blue);
-}
-
-.contact-terminal {
-  font-family: 'Space Mono', monospace;
-  font-size: 1rem;
-  color: var(--primary);
-  margin-bottom: 20px;
-  margin-left: 2rem;
-}
-
-.contact-terminal .prompt {
-  font-weight: 700;
-  margin-right: 6px;
+  color: var(--very-dark-text);
 }
 
 .connection{
-    text-decoration: none  ;
+    text-decoration: none;
+}
+
+.contact-terminal{
+    font-family: space, monospace;
+    color: var(--primary);
 }
 
 .contact-text {
   font-size: 1.05rem;
   line-height: 1.6;
-  color: var(--dark-grayish-blue);
+  color: var(--secondary-text);
   margin-bottom: 18px;
 }
 
 .contact-email {
   font-size: 1rem;
-  color: var(--very-dark-blue);
+  color: var(--very-dark-text);
+  margin-left: 1rem;
 }
 
 .contact-email a {
-  color: var(--very-dark-blue);
+  color: var(--very-dark-text);
   text-decoration: none;
   border-bottom: 1px solid var(--primary);
   padding-bottom: 2px;
 }
+
 
 .contact-email a:hover {
   color: var(--primary);
