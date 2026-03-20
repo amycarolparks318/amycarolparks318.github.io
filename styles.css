@@ -839,7 +839,6 @@ main-img {
 }
 
 @media screen and (max-width: 459px) {
-
     aside {
         width: 250px;
         box-shadow: none;

@@ -20,7 +20,7 @@ A responsive product page built with HTML, CSS, and vanilla JavaScript, featurin
 ## 🧠 What I Learned
 
 - Managing DOM interactions and event listeners in vanilla JavaScript
-- Handling state (cart, quantity, image index) without frameworks
+- Handling state (cart, quantity, image index) and localStorage without frameworks
 - Building reusable UI patterns like modals and popups
 - Debugging cross-page JavaScript issues
 - Writing cleaner, more maintainable CSS
@@ -70,6 +70,8 @@ A responsive product page built with HTML, CSS, and vanilla JavaScript, featurin
 
 ## 🔧 Future Improvements
 
+- Move cart functions to cart.js and import to main.js to clean up code
+- Move css styles specific to each page in its own css file
 - Convert project to React for better state management
 - Improve accessibility (ARIA roles, keyboard navigation)
 - Add animations and transitions
@@ -86,5 +88,5 @@ GitHub: https://github.com/amycarolparks318
 
 ## 📌 Notes
 
-This project was built in prison as part of a front-end mentor challenge. I have recreated it into a memoir pre-order page as part of my journey into full-stack development and UI design. It reflects both technical growth and attention to user experience.
+This project was started in prison as part of a front-end mentor challenge. I have recreated it into a memoir pre-order page as part of my journey into full-stack development and UI design. It reflects both technical growth and attention to user experience.
 
