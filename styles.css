@@ -854,4 +854,10 @@ main-img {
         text-align: center;
     }
 
+    .cart-pic {
+        width: 25%;
+        height: auto;
+        margin-bottom: 0;
+    }
+
 }
