@@ -101,7 +101,7 @@ ul {
 
 .nav:hover {
     border-bottom: 4px solid var(--primary);
-    padding-bottom: 2.5rem;
+    padding-bottom: 1rem;
 }
 
 .header-right {
@@ -655,6 +655,10 @@ main-img {
     nav {
         position: relative;
     }
+
+    .nav:hover {
+    padding-bottom: 0;
+}
 
     /* Hide menu by default */
 #nav-links {
